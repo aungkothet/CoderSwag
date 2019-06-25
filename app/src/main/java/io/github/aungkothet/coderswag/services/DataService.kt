@@ -1,11 +1,19 @@
-package io.github.aungkothet.coderswag.Services
+package io.github.aungkothet.coderswag.services
 
-import io.github.aungkothet.coderswag.Model.Category
-import io.github.aungkothet.coderswag.Model.Product
+import io.github.aungkothet.coderswag.model.Category
+import io.github.aungkothet.coderswag.model.Product
 
 object DataService {
 
     val categories = listOf(
+        Category("SHIRTS","shirtimage"),
+        Category("HOODIES","hoodieimage"),
+        Category("HATS","hatimage"),
+        Category("DIGITALS","digitalgoodsimage"),
+        Category("SHIRTS","shirtimage"),
+        Category("HOODIES","hoodieimage"),
+        Category("HATS","hatimage"),
+        Category("DIGITALS","digitalgoodsimage"),
         Category("SHIRTS","shirtimage"),
         Category("HOODIES","hoodieimage"),
         Category("HATS","hatimage"),
