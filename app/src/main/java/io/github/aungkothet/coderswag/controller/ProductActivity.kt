@@ -20,20 +20,19 @@ class ProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
-
         adapter = ProductRecyclerAdapter(this, categoryType, DataService.getProducts(categoryType)) { product, tag ->
             val productDetailIntent = Intent(this, ProductDetailActivity::class.java)
             productDetailIntent.putExtra(EXTRA_PRODUCT, product)
             productDetailIntent.putExtra(EXTRA_CATEGORY, tag)
             startActivity(productDetailIntent)
         }
-
+        backButton.setOnClickListener {
+            finish()
+        }
         val orientation =  resources.configuration.orientation
         var spanCount = 2
         if(orientation == Configuration.ORIENTATION_LANDSCAPE) spanCount = 3
-
         val layoutManager = GridLayoutManager(this,spanCount)
-
         productListView.layoutManager = layoutManager
         productListView.adapter = adapter
 

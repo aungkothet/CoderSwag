@@ -2,6 +2,7 @@ package io.github.aungkothet.coderswag.controller
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import io.github.aungkothet.coderswag.R
 import io.github.aungkothet.coderswag.model.Product
 import io.github.aungkothet.coderswag.services.DataService
@@ -28,11 +29,12 @@ class ProductDetailActivity : AppCompatActivity() {
         }
         favouriteButton.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                if (!DataService.favouriteProducts.contains(tag))
-                    DataService.favouriteProducts.add(tag)
-            } else
+                Toast.makeText(this, "Added to Favourite List!!", Toast.LENGTH_SHORT).show()
+                DataService.favouriteProducts.add(tag)
+            } else {
+                Toast.makeText(this, "Removed from Favourite List!!", Toast.LENGTH_SHORT).show()
                 DataService.favouriteProducts.remove(tag)
-            println(DataService.favouriteProducts)
+            }
         }
 
     }
